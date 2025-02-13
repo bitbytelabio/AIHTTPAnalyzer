@@ -1,4 +1,0 @@
-Flask
-markdown2
-requests
-google-generativeai
