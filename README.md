@@ -1,4 +1,6 @@
-# BurpAI Extension
+# BurpAI: An AI-Powered Security Analysis Assistant for Burp Suite
+
+BurpAI revolutionizes web application security testing by bringing artificial intelligence capabilities to Burp Suite. This innovative extension harnesses the power of AI to automate vulnerability detection, provide intelligent analysis, and assist security professionals in identifying complex security issues. Whether you're a penetration tester, security researcher, or web security enthusiast, BurpAI enhances your workflow with smart, context-aware security analysis and real-time vulnerability assessments.
 
 ![BurpAI Logo](path/to/logo.png)
 
@@ -8,18 +10,10 @@ BurpAI is an advanced security analysis assistant integrated into Burp Suite. It
 
 ## Features
 
-- Analyze HTTP requests and responses for security vulnerabilities
-- Provide technical analysis and exploitation steps
-- Include PoC examples and payloads
-- Integrate with Burp Suite's UI and context menu
-
-## Author
-
-**ALPEREN ERGEL (@alpernae)**
-
-## Version
-
-**2025.1.0**
+- 🔍 **Analyze HTTP requests and responses for security vulnerabilities**
+- 🛠️ **Provide technical analysis and exploitation steps**
+- 📄 **Include PoC examples and payloads**
+- 🖥️ **Integrate with Burp Suite's UI and context menu**
 
 ## Installation
 
@@ -59,6 +53,14 @@ BurpAI is an advanced security analysis assistant integrated into Burp Suite. It
 ## Extensibility with AI
 
 AI-powered extensibility opens up new possibilities for solving challenges that were previously difficult or even impossible with traditional code alone. Now, you can leverage AI to enhance security testing, automate tedious tasks, and gain deeper insights into web application vulnerabilities.
+
+## Version
+
+**2025.1.0**
+
+## Author
+
+**ALPEREN ERGEL (@alpernae)**
 
 ## License
 
