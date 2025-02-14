@@ -2,7 +2,7 @@
 
 BurpAI revolutionizes web application security testing by bringing artificial intelligence capabilities to Burp Suite. This innovative extension harnesses the power of AI to automate vulnerability detection, provide intelligent analysis, and assist security professionals in identifying complex security issues. Whether you're a penetration tester, security researcher, or web security enthusiast, BurpAI enhances your workflow with smart, context-aware security analysis and real-time vulnerability assessments.
 
-![BurpAI Logo](path/to/logo.png)
+![BurpAI Logo](https://pbs.twimg.com/media/GjrHksUXkAAWS5a?format=jpg&name=medium)
 
 ## Overview
 
