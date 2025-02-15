@@ -9,10 +9,8 @@ import burp.api.montoya.http.message.responses.HttpResponse;
 import burp.api.montoya.logging.Logging;
 import burp.api.montoya.ai.chat.PromptResponse;
 import burp.api.montoya.ai.chat.PromptException;
-import burp.api.montoya.ai.chat.PromptOptions;
 import com.vladsch.flexmark.html.HtmlRenderer;
 import com.vladsch.flexmark.parser.Parser;
-import ai.MyPromptMessage;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,8 +19,6 @@ import java.util.concurrent.Executors;
 import java.util.HashMap;
 import java.util.Map;
 import java.awt.event.*;
-
-import static burp.api.montoya.ai.chat.Message.userMessage;
 
 public class BurpAITab {
     private final JPanel mainPanel;
@@ -283,20 +279,12 @@ public class BurpAITab {
         HttpRequest request = currentRequestResponse != null ? currentRequestResponse.request() : null;
         HttpResponse response = currentRequestResponse != null ? currentRequestResponse.response() : null;
 
-        // Build the prompt conditionally
-        StringBuilder promptBuilder = new StringBuilder();
-        if (includeRequestResponse && request != null && response != null) {
-            promptBuilder.append("Analyze this HTTP request and response for security issues:\n")
-                          .append("REQUEST:\n")
-                         .append(request.toString())
-                         .append("\n\nRESPONSE:\n")
-                         .append(response.toString())
-                         .append("\n\n");
-        }
-        // Always append the custom prompt, regardless of checkbox
-        promptBuilder.append(customInput);
+        String promptText = buildPromptText(includeRequestResponse, customInput, request, response);
 
-        String promptText = promptBuilder.toString();
+        if (promptText == null) {
+            aiResponseArea.setText("Empty custom prompt or HTTP request.");
+            return;
+        }
 
         aiResponseArea.setText("Analyzing request/response...");
 
@@ -343,6 +331,43 @@ public class BurpAITab {
                 );
             }
         });
+    }
+
+    private static String buildPromptText(boolean includeRequestResponse, String customInput, HttpRequest request, HttpResponse response) {
+        boolean analyzeRequest = includeRequestResponse && request != null;
+
+        if (!analyzeRequest && customInput.isEmpty()) {
+            return null;
+        }
+
+        // Build the prompt conditionally
+        StringBuilder promptBuilder = new StringBuilder();
+
+        if (analyzeRequest) {
+            promptBuilder.append("Analyze this HTTP request");
+
+            if (response != null) {
+                promptBuilder.append(" and response");
+            }
+
+            promptBuilder
+                    .append(" for security issues:\n")
+                    .append("REQUEST:\n")
+                    .append(request);
+
+            if (response != null) {
+                promptBuilder
+                        .append("\n\nRESPONSE:\n")
+                        .append(response);
+            }
+
+            promptBuilder.append("\n\n");
+        }
+
+        // Always append the custom prompt, regardless of checkbox
+        promptBuilder.append(customInput);
+
+        return promptBuilder.toString();
     }
 
     public void setRequestResponse(HttpRequestResponse requestResponse) {
