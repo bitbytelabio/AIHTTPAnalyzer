@@ -333,7 +333,6 @@ public class BurpAITab {
                 SwingUtilities.invokeLater(() ->
                     aiResponseArea.setText(htmlContent)
                 );
-            } catch (PromptException error) {
             } catch (Exception error) {
                 String errorDetails = "An unexpected error occurred: " + error.getMessage() + "\n\n" +
                         "Please check the Burp Suite extension logs for more details.";
