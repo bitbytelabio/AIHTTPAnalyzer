@@ -68,6 +68,7 @@ public class BurpAiRequestTab extends JPanel
 
         // New checkbox
         JCheckBox includeReqResp = new JCheckBox("Send Request and Response");
+        includeReqResp.setSelected(requestResponse != null);
 
         // Create a custom input field for additional user prompt
         JTextField customInputField = new JTextField(20);
