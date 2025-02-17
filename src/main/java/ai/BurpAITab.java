@@ -40,6 +40,7 @@ public class BurpAITab {
     }
 
     public void sendNewRequestToTab(HttpRequestResponse requestResponse) {
+        // The name of request tabs can stay as is since they are numbered
         String tabTitle = "Request " + tabCounter++;
         createNewTab(tabTitle, requestResponse);
     }

@@ -44,7 +44,7 @@ public class Extension implements BurpExtension {
 
         BurpAITab burpAITab = new BurpAITab(api.userInterface(), logging, promptHandler, executorService);
 
-        api.userInterface().registerSuiteTab("AI HTTP Analyzer", burpAITab.getUiComponent());
+        api.userInterface().registerSuiteTab("AI HTTP ANALYZER", burpAITab.getUiComponent());
         api.userInterface().registerContextMenuItemsProvider(new BurpAIContextMenu(burpAITab));
         api.extension().registerUnloadingHandler(executorService::shutdownNow);
 

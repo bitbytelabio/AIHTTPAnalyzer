@@ -24,7 +24,7 @@ public class BurpAIContextMenu implements ContextMenuItemsProvider {
             return emptyList();
         }
 
-        JMenuItem sendToBurpAI = new JMenuItem("Send to BurpAI");
+        JMenuItem sendToBurpAI = new JMenuItem("Send to AI HTTP ANALYZER");
         sendToBurpAI.addActionListener(e -> {
             HttpRequestResponse requestResponse = event.messageEditorRequestResponse().isPresent()
                     ? event.messageEditorRequestResponse().get().requestResponse()
