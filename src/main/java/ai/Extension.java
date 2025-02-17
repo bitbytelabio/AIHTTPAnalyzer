@@ -14,10 +14,13 @@ import burp.api.montoya.MontoyaApi;
 import burp.api.montoya.logging.Logging;
 
 import java.util.Set;
+import java.util.concurrent.ExecutorService;
 
 import static burp.api.montoya.EnhancedCapability.AI_FEATURES;
+import static java.util.concurrent.Executors.newFixedThreadPool;
 
-public class Ai implements BurpExtension {
+@SuppressWarnings("unused")
+public class Extension implements BurpExtension {
     public static final String SYSTEM_MESSAGE = 
         "You are BurpAI, an advanced security analysis assistant integrated into Burp Suite. " +
         "Your role is to examine HTTP requests and responses for potential security vulnerabilities, " +
@@ -34,12 +37,18 @@ public class Ai implements BurpExtension {
     public void initialize(MontoyaApi api) {
         api.extension().setName("BurpAI");
 
-        BurpAITab burpAITab = new BurpAITab(api.userInterface(), api.ai(), api.logging());
+        Logging logging = api.logging();
+
+        ExecutorService executorService = newFixedThreadPool(5);
+        PromptHandler promptHandler = new PromptHandler(logging, api.ai(), SYSTEM_MESSAGE);
+
+        BurpAITab burpAITab = new BurpAITab(api.userInterface(), logging, promptHandler, executorService);
+
         api.userInterface().registerSuiteTab("BurpAI", burpAITab.getUiComponent());
         api.userInterface().registerContextMenuItemsProvider(new BurpAIContextMenu(burpAITab));
+        api.extension().registerUnloadingHandler(executorService::shutdownNow);
 
         // Log custom success message with logToOutput
-        Logging logging = api.logging();
         logging.logToOutput("BurpAI extension loaded successfully.\nAuthor: ALPEREN ERGEL (@alpernae)\nVersion: 2025.1.0");
     }
 

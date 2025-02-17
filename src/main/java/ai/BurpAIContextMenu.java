@@ -7,8 +7,9 @@ import burp.api.montoya.ui.contextmenu.ContextMenuItemsProvider;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 import java.util.List;
+
+import static java.util.Collections.emptyList;
 
 public class BurpAIContextMenu implements ContextMenuItemsProvider {
     private final BurpAITab burpAITab;
@@ -20,18 +21,18 @@ public class BurpAIContextMenu implements ContextMenuItemsProvider {
     @Override
     public List<Component> provideMenuItems(ContextMenuEvent event) {
         if (!event.isFromTool(ToolType.PROXY) && !event.isFromTool(ToolType.REPEATER) && !event.isFromTool(ToolType.TARGET)) {
-            return null;
+            return emptyList();
         }
 
-        List<Component> menuItems = new ArrayList<>();
         JMenuItem sendToBurpAI = new JMenuItem("Send to BurpAI");
         sendToBurpAI.addActionListener(e -> {
-            if (event.messageEditorRequestResponse().isPresent()) {
-                HttpRequestResponse requestResponse = event.messageEditorRequestResponse().get().requestResponse();
-                burpAITab.setRequestResponse(requestResponse);
-            }
+            HttpRequestResponse requestResponse = event.messageEditorRequestResponse().isPresent()
+                    ? event.messageEditorRequestResponse().get().requestResponse()
+                    : event.selectedRequestResponses().get(0);
+
+            burpAITab.sendNewRequestToTab(requestResponse);
         });
-        menuItems.add(sendToBurpAI);
-        return menuItems;
+
+        return List.of(sendToBurpAI);
     }
 }
