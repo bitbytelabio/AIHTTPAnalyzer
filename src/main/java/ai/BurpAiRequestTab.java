@@ -81,7 +81,7 @@ public class BurpAiRequestTab extends JPanel
         JButton analyzeButton = new JButton("Analyze with AI HTTP Analyzer");
         analyzeButton.setBackground(Color.decode("#ff6633"));
         analyzeButton.setForeground(Color.WHITE);
-        analyzeButton.setFont(new Font("Segoe UI Emoji", Font.BOLD, 13));
+        //analyzeButton.setFont(new Font("Segoe UI Emoji", 13));
         analyzeButton.setFocusPainted(false);
         analyzeButton.setBorderPainted(false);
         analyzeButton.setOpaque(true);
