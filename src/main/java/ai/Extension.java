@@ -39,10 +39,10 @@ public class Extension implements BurpExtension {
 
         Logging logging = api.logging();
 
-        MyPromptMessage myPromptMessage = new MyPromptMessage(SYSTEM_MESSAGE);
         ExecutorService executorService = newFixedThreadPool(5);
+        PromptHandler promptHandler = new PromptHandler(logging, api.ai(), SYSTEM_MESSAGE);
 
-        BurpAITab burpAITab = new BurpAITab(api.userInterface(), api.ai(), logging, myPromptMessage, executorService);
+        BurpAITab burpAITab = new BurpAITab(api.userInterface(), logging, promptHandler, executorService);
 
         api.userInterface().registerSuiteTab("BurpAI", burpAITab.getUiComponent());
         api.userInterface().registerContextMenuItemsProvider(new BurpAIContextMenu(burpAITab));

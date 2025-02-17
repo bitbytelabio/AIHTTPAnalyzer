@@ -30,7 +30,7 @@ public class BurpAIContextMenu implements ContextMenuItemsProvider {
                     ? event.messageEditorRequestResponse().get().requestResponse()
                     : event.selectedRequestResponses().get(0);
 
-            burpAITab.setRequestResponse(requestResponse);
+            burpAITab.sendNewRequestToTab(requestResponse);
         });
 
         return List.of(sendToBurpAI);
