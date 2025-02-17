@@ -14,8 +14,10 @@ import burp.api.montoya.MontoyaApi;
 import burp.api.montoya.logging.Logging;
 
 import java.util.Set;
+import java.util.concurrent.ExecutorService;
 
 import static burp.api.montoya.EnhancedCapability.AI_FEATURES;
+import static java.util.concurrent.Executors.newFixedThreadPool;
 
 @SuppressWarnings("unused")
 public class Extension implements BurpExtension {
@@ -34,13 +36,17 @@ public class Extension implements BurpExtension {
     @Override
     public void initialize(MontoyaApi api) {
         api.extension().setName("BurpAI");
+
         Logging logging = api.logging();
 
         MyPromptMessage myPromptMessage = new MyPromptMessage(SYSTEM_MESSAGE);
+        ExecutorService executorService = newFixedThreadPool(5);
 
-        BurpAITab burpAITab = new BurpAITab(api.userInterface(), api.ai(), logging, myPromptMessage);
+        BurpAITab burpAITab = new BurpAITab(api.userInterface(), api.ai(), logging, myPromptMessage, executorService);
+
         api.userInterface().registerSuiteTab("BurpAI", burpAITab.getUiComponent());
         api.userInterface().registerContextMenuItemsProvider(new BurpAIContextMenu(burpAITab));
+        api.extension().registerUnloadingHandler(executorService::shutdownNow);
 
         // Log custom success message with logToOutput
         logging.logToOutput("BurpAI extension loaded successfully.\nAuthor: ALPEREN ERGEL (@alpernae)\nVersion: 2025.1.0");

@@ -19,8 +19,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 
-import static java.util.concurrent.Executors.newSingleThreadExecutor;
-
 public class BurpAITab {
     private final JPanel mainPanel;
     private final JTabbedPane tabbedPane;
@@ -32,12 +30,13 @@ public class BurpAITab {
     private final ExecutorService executorService;
     private final UserInterface userInterface;
 
-    public BurpAITab(UserInterface userInterface, Ai montoyaAi, Logging logging, MyPromptMessage myPromptMessage) {
+    public BurpAITab(UserInterface userInterface, Ai montoyaAi, Logging logging, MyPromptMessage myPromptMessage, ExecutorService executorService) {
         this.userInterface = userInterface;
         this.montoyaAi = montoyaAi;
         this.logging = logging;
         this.myPromptMessage = myPromptMessage;
-        executorService = newSingleThreadExecutor();
+        this.executorService = executorService;
+
         tabRequests = new HashMap<>();
 
         mainPanel = new JPanel(new BorderLayout());
