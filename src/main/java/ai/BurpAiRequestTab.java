@@ -13,7 +13,10 @@ import com.vladsch.flexmark.parser.Parser;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.util.concurrent.ExecutorService;
+import java.util.function.Consumer;
 
 public class BurpAiRequestTab extends JPanel
 {
@@ -92,8 +95,7 @@ public class BurpAiRequestTab extends JPanel
         bottomPanel.add(analyzeButton);
         this.add(bottomPanel, BorderLayout.SOUTH);
 
-        // Modify button action to pass customInputField text
-        analyzeButton.addActionListener(e -> {
+        Consumer<AWTEvent> runPrompt = e -> {
             analyzeRequest(
                     requestEditor.getRequest(),
                     responseEditor.getResponse(),
@@ -102,7 +104,18 @@ public class BurpAiRequestTab extends JPanel
                     customInputField.getText());
             // Clear the input field
             customInputField.setText("");
+        };
+
+        customInputField.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ENTER) {
+                    runPrompt.accept(e);
+                }
+            }
         });
+
+        analyzeButton.addActionListener(runPrompt::accept);
     }
 
     private void analyzeRequest(HttpRequest request,
