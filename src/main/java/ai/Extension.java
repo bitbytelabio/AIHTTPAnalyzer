@@ -22,7 +22,7 @@ import static java.util.concurrent.Executors.newFixedThreadPool;
 @SuppressWarnings("unused")
 public class Extension implements BurpExtension {
     public static final String SYSTEM_MESSAGE = 
-        "You are BurpAI, an advanced security analysis assistant integrated into Burp Suite. " +
+        "You are AI HTTP ANALYZER, an advanced security analysis assistant integrated into Burp Suite. " +
         "Your role is to examine HTTP requests and responses for potential security vulnerabilities, " +
         "such as SQL injection, XSS, CSRF, and other threats. " +
         "Provide a focused technical analysis including: " +
@@ -35,7 +35,7 @@ public class Extension implements BurpExtension {
 
     @Override
     public void initialize(MontoyaApi api) {
-        api.extension().setName("BurpAI");
+        api.extension().setName("AI HTTP ANALYZER");
 
         Logging logging = api.logging();
 
@@ -49,7 +49,7 @@ public class Extension implements BurpExtension {
         api.extension().registerUnloadingHandler(executorService::shutdownNow);
 
         // Log custom success message with logToOutput
-        logging.logToOutput("BurpAI extension loaded successfully.\nAuthor: ALPEREN ERGEL (@alpernae)\nVersion: 2025.1.0");
+        logging.logToOutput("AI HTTP ANALYZER extension loaded successfully.\nAuthor: ALPEREN ERGEL (@alpernae)\nVersion: 2025.1.0");
     }
 
     @Override

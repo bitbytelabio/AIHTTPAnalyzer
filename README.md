@@ -1,12 +1,10 @@
-# BurpAI: An AI-Powered Security Analysis Assistant for Burp Suite
+# AI HTTP ANALYZER: An AI-Powered Security Analysis Assistant for Burp Suite
 
-BurpAI revolutionizes web application security testing by bringing artificial intelligence capabilities to Burp Suite. This innovative extension harnesses the power of AI to automate vulnerability detection, provide intelligent analysis, and assist security professionals in identifying complex security issues. Whether you're a penetration tester, security researcher, or web security enthusiast, BurpAI enhances your workflow with smart, context-aware security analysis and real-time vulnerability assessments.
-
-![BurpAI Logo](https://pbs.twimg.com/media/GjrHksUXkAAWS5a?format=jpg&name=medium)
+AI HTTP ANALYZER revolutionizes web application security testing by bringing artificial intelligence capabilities to Burp Suite. This innovative extension harnesses the power of AI to automate vulnerability detection, provide intelligent analysis, and assist security professionals in identifying complex security issues. Whether you're a penetration tester, security researcher, or web security enthusiast, AI HTTP ANALYZER enhances your workflow with smart, context-aware security analysis and real-time vulnerability assessments.
 
 ## Overview
 
-BurpAI is an advanced security analysis assistant integrated into Burp Suite. It examines HTTP requests and responses for potential security vulnerabilities such as SQL injection, XSS, CSRF, and other threats. The extension provides focused technical analysis, including quick identification of detected vulnerabilities, clear technical steps for exploitation, and PoC examples and payloads where applicable.
+AI HTTP ANALYZER is an advanced security analysis assistant integrated into Burp Suite. It examines HTTP requests and responses for potential security vulnerabilities such as SQL injection, XSS, CSRF, and other threats. The extension provides focused technical analysis, including quick identification of detected vulnerabilities, clear technical steps for exploitation, and PoC examples and payloads where applicable.
 
 ## Features
 
@@ -14,12 +12,14 @@ BurpAI is an advanced security analysis assistant integrated into Burp Suite. It
 - 🛠️ **Provide technical analysis and exploitation steps**
 - 📄 **Include PoC examples and payloads**
 - 🖥️ **Integrate with Burp Suite's UI and context menu**
+- 🚀 **Real-time vulnerability assessments**
+- 🤖 **AI-powered context-aware analysis**
 
 ## Installation
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/yourusername/BurpAI.git
+    git clone https://github.com/alpernae/BurpAI.git
     ```
 
 2. Navigate to the project directory:
@@ -27,16 +27,25 @@ BurpAI is an advanced security analysis assistant integrated into Burp Suite. It
     cd BurpAI
     ```
 
-3. Build the project using Gradle:
+3. If you're on Linux or macOS, you'll need to:
+    ```sh
+    # Convert line endings to Unix style
+    dos2unix gradlew
+    
+    # Make the gradlew script executable
+    chmod +x gradlew
+    ```
+
+4. Build the project using Gradle:
     ```sh
     ./gradlew build
     ```
 
-4. Locate the generated JAR file in the `build/libs` directory.
+5. Locate the generated JAR file in the `build/libs` directory.
 
-5. Open Burp Suite and go to the `Extender` tab.
+6. Open Burp Suite and go to the `Extender` tab.
 
-6. Click on the `Add` button and select the generated JAR file.
+7. Click on the `Add` button and select the generated JAR file.
 
 ## Usage
 
@@ -56,7 +65,7 @@ AI-powered extensibility opens up new possibilities for solving challenges that 
 
 ## Version
 
-**2025.1.0**
+**2025.1.1**
 
 ## Author
 

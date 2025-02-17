@@ -33,7 +33,7 @@ public class BurpAITab {
         tabbedPane = new JTabbedPane();
         
         // Add initial empty tab
-        createNewTab("BurpAI", null);
+        createNewTab("Default Tab", null);
         
         mainPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         mainPanel.add(tabbedPane, BorderLayout.CENTER);

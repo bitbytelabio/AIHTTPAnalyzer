@@ -6,7 +6,7 @@ We release patches for security vulnerabilities. Which versions are eligible for
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 2025.1.0   | :white_check_mark: |
+| AI HTTP ANALYZER 2025.1.0   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
