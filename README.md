@@ -19,12 +19,12 @@ AI HTTP ANALYZER is an advanced security analysis assistant integrated into Burp
 
 1. Clone the repository:
     ```sh
-    git clone https://github.com/alpernae/BurpAI.git
+    git clone https://github.com/alpernae/AIHTTPAnalyzer.git
     ```
 
 2. Navigate to the project directory:
     ```sh
-    cd BurpAI
+    cd AIHTTPAnalyzer
     ```
 
 3. If you're on Linux or macOS, you'll need to:
@@ -49,15 +49,15 @@ AI HTTP ANALYZER is an advanced security analysis assistant integrated into Burp
 
 ## Usage
 
-1. Once the extension is loaded, you will see a new tab named `BurpAI` in Burp Suite.
+1. Once the extension is loaded, you will see a new tab named `AIHTTPAnalyzer` in Burp Suite.
 
-2. You can analyze HTTP requests and responses by selecting them and using the context menu option `Send to BurpAI`.
+2. You can analyze HTTP requests and responses by selecting them and using the context menu option `Send to AIHTTPAnalyzer`.
 
-3. In the `BurpAI` tab, you can view the analysis results provided by the AI.
+3. In the `AIHTTPAnalyzer` tab, you can view the analysis results provided by the AI.
 
 4. Use the checkbox to include the request and response in the analysis, and provide any custom input in the text field.
 
-5. Click the `Analyze with BurpAI` button to send the prompt to the AI and view the results.
+5. Click the `Analyze with AIHTTPAnalyzer` button to send the prompt to the AI and view the results.
 
 ## Extensibility with AI
 
