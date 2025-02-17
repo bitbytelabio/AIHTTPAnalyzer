@@ -47,11 +47,30 @@ AI HTTP ANALYZER is an advanced security analysis assistant integrated into Burp
 
 2. You can analyze HTTP requests and responses by selecting them and using the context menu option `Send to AIHTTPAnalyzer`.
 
-3. In the `AIHTTPAnalyzer` tab, you can view the analysis results provided by the AI.
+3. In the `AIHTTPAnalyzer` tab, you can:
+   - Use checkboxes to include/exclude the request and response in your analysis
+   - Enter custom prompts in the text field for specific analysis requirements
 
-4. Use the checkbox to include the request and response in the analysis, and provide any custom input in the text field.
+4. Custom Prompt Examples:
+   ```
+   "Check for IDOR vulnerabilities in this endpoint"
+   "Analyze the authentication mechanism in this request"
+   "Suggest possible SQL injection points in this request"
+   "Generate bypass payloads for the WAF patterns in this response"
+   ```
 
-5. Click the `Analyze with AIHTTPAnalyzer` button to send the prompt to the AI and view the results.
+5. Prompt Best Practices:
+   - Be specific about what you want to analyze
+   - Include the type of vulnerability you're looking for
+   - Ask for specific payload suggestions when needed
+   - Request exploitation steps if applicable
+
+6. The AI will analyze:
+   - The selected request/response (if checked)
+   - Your custom prompt
+   - The context of the HTTP interaction
+   
+7. Click the `Analyze with AIHTTPAnalyzer` button to send the prompt and view the results.
 
 ## Extensibility with AI
 
