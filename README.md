@@ -29,7 +29,6 @@ AI HTTP ANALYZER is an advanced security analysis assistant integrated into Burp
     cd AIHTTPAnalyzer
     ```
 
-
 3. Build the project using Gradle:
 
     ```sh
@@ -60,7 +59,7 @@ AI-powered extensibility opens up new possibilities for solving challenges that 
 
 ## Version
 
-**2025.1.1**
+**2025.1.0**
 
 ## Author
 
@@ -68,4 +67,4 @@ AI-powered extensibility opens up new possibilities for solving challenges that 
 
 ## License
 
-This project is licensed under the MIT License. You may use, modify, and distribute this code.
+This project is licensed under the MIT License. You may use, modify, and distribute this code under the terms of the MIT License. For more details, see the [LICENSE](LICENSE) file.
