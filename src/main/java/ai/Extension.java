@@ -17,7 +17,8 @@ import java.util.Set;
 
 import static burp.api.montoya.EnhancedCapability.AI_FEATURES;
 
-public class Ai implements BurpExtension {
+@SuppressWarnings("unused")
+public class Extension implements BurpExtension {
     public static final String SYSTEM_MESSAGE = 
         "You are BurpAI, an advanced security analysis assistant integrated into Burp Suite. " +
         "Your role is to examine HTTP requests and responses for potential security vulnerabilities, " +
@@ -33,13 +34,15 @@ public class Ai implements BurpExtension {
     @Override
     public void initialize(MontoyaApi api) {
         api.extension().setName("BurpAI");
+        Logging logging = api.logging();
 
-        BurpAITab burpAITab = new BurpAITab(api.userInterface(), api.ai(), api.logging());
+        MyPromptMessage myPromptMessage = new MyPromptMessage(SYSTEM_MESSAGE);
+
+        BurpAITab burpAITab = new BurpAITab(api.userInterface(), api.ai(), logging, myPromptMessage);
         api.userInterface().registerSuiteTab("BurpAI", burpAITab.getUiComponent());
         api.userInterface().registerContextMenuItemsProvider(new BurpAIContextMenu(burpAITab));
 
         // Log custom success message with logToOutput
-        Logging logging = api.logging();
         logging.logToOutput("BurpAI extension loaded successfully.\nAuthor: ALPEREN ERGEL (@alpernae)\nVersion: 2025.1.0");
     }
 

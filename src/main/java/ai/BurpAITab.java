@@ -1,40 +1,43 @@
 package ai;
 
-import burp.api.montoya.ui.UserInterface;
-import burp.api.montoya.ui.editor.HttpRequestEditor;
-import burp.api.montoya.ui.editor.HttpResponseEditor;
+import burp.api.montoya.ai.Ai;
+import burp.api.montoya.ai.chat.PromptResponse;
 import burp.api.montoya.http.message.HttpRequestResponse;
 import burp.api.montoya.http.message.requests.HttpRequest;
 import burp.api.montoya.http.message.responses.HttpResponse;
 import burp.api.montoya.logging.Logging;
-import burp.api.montoya.ai.chat.PromptResponse;
-import burp.api.montoya.ai.chat.PromptException;
+import burp.api.montoya.ui.UserInterface;
+import burp.api.montoya.ui.editor.HttpRequestEditor;
+import burp.api.montoya.ui.editor.HttpResponseEditor;
 import com.vladsch.flexmark.html.HtmlRenderer;
 import com.vladsch.flexmark.parser.Parser;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.awt.event.*;
 import java.util.HashMap;
 import java.util.Map;
-import java.awt.event.*;
+import java.util.concurrent.ExecutorService;
+
+import static java.util.concurrent.Executors.newSingleThreadExecutor;
 
 public class BurpAITab {
     private final JPanel mainPanel;
     private final JTabbedPane tabbedPane;
     private final Map<Component, HttpRequestResponse> tabRequests;
     private int tabCounter = 1;
-    private final burp.api.montoya.ai.Ai montoyaAi;
+    private final Ai montoyaAi;
     private final Logging logging;
+    private final MyPromptMessage myPromptMessage;
     private final ExecutorService executorService;
     private final UserInterface userInterface;
 
-    public BurpAITab(UserInterface userInterface, burp.api.montoya.ai.Ai montoyaAi, Logging logging) {
+    public BurpAITab(UserInterface userInterface, Ai montoyaAi, Logging logging, MyPromptMessage myPromptMessage) {
         this.userInterface = userInterface;
         this.montoyaAi = montoyaAi;
         this.logging = logging;
-        executorService = Executors.newFixedThreadPool(5);
+        this.myPromptMessage = myPromptMessage;
+        executorService = newSingleThreadExecutor();
         tabRequests = new HashMap<>();
 
         mainPanel = new JPanel(new BorderLayout());
@@ -299,7 +302,6 @@ public class BurpAITab {
                 }
 
                 // Create messages array with system + user prompt
-                MyPromptMessage myPromptMessage = new MyPromptMessage(Ai.SYSTEM_MESSAGE);
                 burp.api.montoya.ai.chat.Message[] messages = myPromptMessage.build(promptText);
 
                 // Execute using messages array rather than raw string
