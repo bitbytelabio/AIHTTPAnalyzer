@@ -15,7 +15,7 @@ If you discover a security vulnerability within this project, please follow thes
 1. You can:
     - Open a security issue with the 'Security' label
     - Create a pull request with a patch
-    - Send an email to alperene@aof.anadolu.edu.tr
+    - Send an email to alpernae@proton.me
 
 We welcome all responsible security disclosures through any of these channels.
 2. Include the following information in your email:
