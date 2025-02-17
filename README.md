@@ -14,6 +14,9 @@ AI HTTP ANALYZER is an advanced security analysis assistant integrated into Burp
 - 🖥️ **Integrate with Burp Suite's UI and context menu**
 - 🚀 **Real-time vulnerability assessments**
 - 🤖 **AI-powered context-aware analysis**
+- 🎯 **Generate Proof-of-Concept exploits**
+- 📝 **Custom PoC script generation**
+- 🔧 **Payload customization for specific scenarios**
 
 ## Installation
 
@@ -71,6 +74,35 @@ AI HTTP ANALYZER is an advanced security analysis assistant integrated into Burp
    - The context of the HTTP interaction
    
 7. Click the `Analyze with AIHTTPAnalyzer` button to send the prompt and view the results.
+
+## Proof-of-Concept Generation
+
+The AI HTTP ANALYZER helps security professionals generate and customize proof-of-concept exploits:
+
+1. **Automated PoC Generation:**
+   - Request PoC scripts for detected vulnerabilities
+   - Get working exploit code examples
+   - Receive customized payloads for specific scenarios
+
+2. **Example PoC Prompts:**
+   ```
+   "Generate a PoC script for this XSS vulnerability"
+   "Create a Python script to exploit this SQL injection"
+   "Provide a curl command to reproduce this SSRF vulnerability"
+   "Generate a working payload to bypass this authentication mechanism"
+   ```
+
+3. **PoC Customization:**
+   - Request language-specific implementations (Python, JavaScript, curl, etc.)
+   - Get explanations for each part of the exploit
+   - Receive guidance on safe testing practices
+
+4. **Security Testing Workflow:**
+   - Identify vulnerability
+   - Generate PoC code
+   - Customize exploit parameters
+   - Validate the vulnerability
+   - Document findings
 
 ## Extensibility with AI
 
