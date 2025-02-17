@@ -33,14 +33,13 @@ public class BurpAITab {
         tabbedPane = new JTabbedPane();
         
         // Add initial empty tab
-        createNewTab("Default Tab", null);
+        createNewTab("Default", null);
         
         mainPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         mainPanel.add(tabbedPane, BorderLayout.CENTER);
     }
 
     public void sendNewRequestToTab(HttpRequestResponse requestResponse) {
-        // The name of request tabs can stay as is since they are numbered
         String tabTitle = "Request " + tabCounter++;
         createNewTab(tabTitle, requestResponse);
     }

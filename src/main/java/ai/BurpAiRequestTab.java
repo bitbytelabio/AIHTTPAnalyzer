@@ -74,7 +74,7 @@ public class BurpAiRequestTab extends JPanel
         customInputField.setPreferredSize(new Dimension(200, 35));
 
         // Add analyze button with custom styling
-        JButton analyzeButton = new JButton("Analyze with BurpAI");
+        JButton analyzeButton = new JButton("Analyze with AI HTTP Analyzer");
         analyzeButton.setBackground(Color.decode("#ff6633"));
         analyzeButton.setForeground(Color.WHITE);
         analyzeButton.setFont(new Font("Segoe UI Emoji", Font.BOLD, 13));

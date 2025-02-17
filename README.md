@@ -18,34 +18,29 @@ AI HTTP ANALYZER is an advanced security analysis assistant integrated into Burp
 ## Installation
 
 1. Clone the repository:
+
     ```sh
     git clone https://github.com/alpernae/AIHTTPAnalyzer.git
     ```
 
 2. Navigate to the project directory:
+
     ```sh
     cd AIHTTPAnalyzer
     ```
 
-3. If you're on Linux or macOS, you'll need to:
-    ```sh
-    # Convert line endings to Unix style
-    dos2unix gradlew
-    
-    # Make the gradlew script executable
-    chmod +x gradlew
-    ```
 
-4. Build the project using Gradle:
+3. Build the project using Gradle:
+
     ```sh
     ./gradlew build
     ```
 
-5. Locate the generated JAR file in the `build/libs` directory.
+4. Locate the generated JAR file in the `build/libs` directory.
 
-6. Open Burp Suite and go to the `Extender` tab.
+5. Open Burp Suite and go to the `Extender` tab.
 
-7. Click on the `Add` button and select the generated JAR file.
+6. Click on the `Add` button and select the generated JAR file.
 
 ## Usage
 
@@ -73,4 +68,4 @@ AI-powered extensibility opens up new possibilities for solving challenges that 
 
 ## License
 
-This code may be used to extend the functionality of Burp Suite Community Edition and Burp Suite Professional, provided that this usage does not violate the license terms for those products.
+This project is licensed under the MIT License. You may use, modify, and distribute this code.

@@ -6,7 +6,7 @@ We release patches for security vulnerabilities. Which versions are eligible for
 
 | Version | Supported          |
 | ------- | ------------------ |
-| AI HTTP ANALYZER 2025.1.0   | :white_check_mark: |
+| 2025.1.0   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
@@ -15,7 +15,7 @@ If you discover a security vulnerability within this project, please follow thes
 1. You can:
     - Open a security issue with the 'Security' label
     - Create a pull request with a patch
-    - Send an email to alpernae@proton.me
+    - Send an email to alperene@aof.anadolu.edu.tr
 
 We welcome all responsible security disclosures through any of these channels.
 2. Include the following information in your email:

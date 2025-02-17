@@ -22,7 +22,7 @@ import static java.util.concurrent.Executors.newFixedThreadPool;
 @SuppressWarnings("unused")
 public class Extension implements BurpExtension {
     public static final String SYSTEM_MESSAGE = 
-        "You are AI HTTP ANALYZER, an advanced security analysis assistant integrated into Burp Suite. " +
+        "You are AI HTTP Analyzer, an advanced security analysis assistant integrated into Burp Suite. " +
         "Your role is to examine HTTP requests and responses for potential security vulnerabilities, " +
         "such as SQL injection, XSS, CSRF, and other threats. " +
         "Provide a focused technical analysis including: " +
@@ -35,7 +35,7 @@ public class Extension implements BurpExtension {
 
     @Override
     public void initialize(MontoyaApi api) {
-        api.extension().setName("AI HTTP ANALYZER");
+        api.extension().setName("AI HTTP Analyzer");
 
         Logging logging = api.logging();
 
@@ -44,12 +44,12 @@ public class Extension implements BurpExtension {
 
         BurpAITab burpAITab = new BurpAITab(api.userInterface(), logging, promptHandler, executorService);
 
-        api.userInterface().registerSuiteTab("AI HTTP ANALYZER", burpAITab.getUiComponent());
+        api.userInterface().registerSuiteTab("AI HTTP Analyzer", burpAITab.getUiComponent());
         api.userInterface().registerContextMenuItemsProvider(new BurpAIContextMenu(burpAITab));
         api.extension().registerUnloadingHandler(executorService::shutdownNow);
 
         // Log custom success message with logToOutput
-        logging.logToOutput("AI HTTP ANALYZER extension loaded successfully.\nAuthor: ALPEREN ERGEL (@alpernae)\nVersion: 2025.1.0");
+        logging.logToOutput("AI HTTP Analyzer extension loaded successfully.\nAuthor: ALPEREN ERGEL (@alpernae)\nVersion: 2025.1.0");
     }
 
     @Override
