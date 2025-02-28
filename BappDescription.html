@@ -1,0 +1,93 @@
+<p>AI HTTP ANALYZER is an advanced security analysis assistant integrated into Burp Suite. It examines HTTP requests and responses for potential security vulnerabilities such as SQL injection, XSS, CSRF, and other threats. The extension provides focused technical analysis, including quick identification of detected vulnerabilities, clear technical steps for exploitation, and PoC examples and payloads where applicable.</p>
+
+<h2>Features</h2>
+
+<ul>
+	<li>Analyze HTTP requests and responses for security vulnerabilities</li>
+	<li>Provide technical analysis and exploitation steps</li>
+	<li>Include PoC examples and payloads</li>
+	<li>Integrate with Burp Suite's UI and context menu</li>
+	<li>Real-time vulnerability assessments</li>
+	<li>AI-powered context-aware analysis</li>
+	<li>Generate Proof-of-Concept exploits</li>
+	<li>Custom PoC script generation</li>
+	<li>Payload customization for specific scenarios</li>
+</ul>
+
+<h2>Usage</h2>
+
+<ol>
+	<li>Right-click on a request/response from the Proxy, Repeater or Target tool tab and "Send to AI HTTP Analyzer".</li>
+	<li>Go to the AI HTTP Analyzer tab, and select the tab for your request.</li>
+	<li>Configure your analysis options.
+		<ul>
+			<li>Use the checkbox to include or exclude the request and response in your analysis.</li>
+			<li>Enter a custom prompt in the text field for specific analysis requirements.<br>
+				For example:<br>
+				<code>Check for IDOR vulnerabilities in this endpoint.</code><br>
+				<code>Analyze the authentication mechanism in this request.</code><br>
+				<code>Suggest possible SQL injection points in this request.</code><br>
+				<code>Generate bypass payloads for the WAF patterns in this response.</code>
+			</li>
+		</ul>
+	</li>
+	<li>Click the "Analyze with AI HTTP Analyzer" button.</li>
+	<li>Review the returned AI response.</li>
+</ol>
+
+<h3>Prompt guide</h3>
+
+<p>Best practices for writing prompts:</p>
+
+<ul>
+	<li>Be specific about what you want to analyze.</li>
+	<li>Include the type of vulnerability you're looking for.</li>
+	<li>Ask for specific payload suggestions when needed.</li>
+	<li>Request exploitation steps if applicable.</li>
+</ul>
+
+<p>The AI will analyze:</p>
+
+<ul>
+	<li>The selected request/response (if checked)</li>
+	<li>Your custom prompt</li>
+	<li>The context of the HTTP interaction</li>
+</ul>
+
+<h2>Proof-of-concept generation</h2>
+
+<p>AI HTTP Analyzer can help security professionals generate and customize proof-of-concept exploits in various ways:</p>
+
+<ol>
+	<li>Automated PoC Generation:
+		<ul>
+			<li>Request PoC scripts for detected vulnerabilities.</li>
+			<li>Get working exploit code examples.</li>
+			<li>Receive customized payloads for specific scenarios</li>
+		</ul>
+	</li>
+	<li>Example PoC Prompts:
+		<ul>
+			<li><code>Generate a PoC script for this XSS vulnerability.</code></li>
+			<li><code>Create a Python script to exploit this SQL injection.</code></li>
+			<li><code>Provide a curl command to reproduce this SSRF vulnerability.</code></li>
+			<li><code>Generate a working payload to bypass this authentication mechanism.</code></li>
+		</ul>
+	</li>
+	<li>PoC Customization:
+		<ul>
+			<li>Request language-specific implementations (Python, JavaScript, curl, etc.).</li>
+			<li>Get explanations for each part of the exploit.</li>
+			<li>Receive guidance on safe testing practices.</li>
+		</ul>
+	</li>
+	<li>Security Testing Workflow:
+		<ul>
+			<li>Identify vulnerability.</li>
+			<li>Generate PoC code.</li>
+			<li>Customize exploit parameters.</li>
+			<li>Validate the vulnerability.</li>
+			<li>Document findings.</li>
+		</ul>
+	</li>
+</ol>
