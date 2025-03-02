@@ -6,7 +6,7 @@ We release patches for security vulnerabilities. Which versions are eligible for
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 2025.1.0   | :white_check_mark: |
+| 2025.1.1   | :white_check_mark: |
 
 ## Reporting a Vulnerability
 
@@ -18,10 +18,12 @@ If you discover a security vulnerability within this project, please follow thes
     - Send an email to alpernae@proton.me
 
 We welcome all responsible security disclosures through any of these channels.
+
 2. Include the following information in your email:
     - A description of the vulnerability.
     - Steps to reproduce the vulnerability.
     - Any potential impact or exploit scenarios.
+
 3. We will acknowledge receipt of your email within 48 hours and will work with you to understand and resolve the issue promptly.
 
 We appreciate your efforts to responsibly disclose your findings and will make every effort to acknowledge your contributions.
@@ -34,8 +36,11 @@ We follow responsible disclosure guidelines to ensure that vulnerabilities are a
 - Avoid exploiting the vulnerability for any reason.
 - Act in good faith to avoid privacy violations, destruction of data, and interruption or degradation of our services.
 
-## Current Status
+## Hall of Fame
 
-There are no known security issues at the moment.
+We would like to thank the following individuals for their contributions to the security of this project:
+
+- **Benjamin Schmidt**: Zero-Click Data Exfiltration Vulnerability in AI HTTP Analyzer
+    - [LinkedIn](https://linkedin.com/in/ben-schmidt93)
 
 Thank you for helping to keep this project secure.
